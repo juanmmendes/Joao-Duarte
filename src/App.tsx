@@ -438,11 +438,11 @@ function LanguageCard({
 
 function KeyValue({ k, v }: { k: string; v: string }) {
   return (
-    <div className="grid grid-cols-[minmax(0,110px)_1fr] gap-2">
-      <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+    <div className="grid gap-1 sm:grid-cols-[minmax(0,120px)_1fr] sm:items-center">
+      <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground sm:text-right">
         {k}
       </span>
-      <span className="text-sm font-semibold text-foreground">{v}</span>
+      <span className="break-words text-sm font-semibold text-foreground">{v}</span>
     </div>
   );
 }
@@ -517,8 +517,8 @@ export default function App() {
           className="relative overflow-hidden rounded-3xl border bg-card/80 p-6 shadow-[0_25px_70px_-40px_rgba(15,23,42,0.45)] sm:p-10"
         >
           <div className="grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start">
-            <motion.div {...fadeInOnMount} className="space-y-6">
-              <Badge className="bg-primary/15 text-primary hover:bg-primary/20">
+            <motion.div {...fadeInOnMount} className="order-2 space-y-6 lg:order-1">
+              <Badge className="bg-primary text-primary-foreground shadow-md hover:bg-primary/90">
                 Em evolução constante
               </Badge>
               <div>
@@ -575,8 +575,11 @@ export default function App() {
               </div>
             </motion.div>
 
-            <motion.aside {...fadeInOnMount} className="space-y-6">
-              <div className="relative mx-auto max-w-xs overflow-hidden rounded-[2rem] border border-primary/30 bg-gradient-to-b from-primary/10 via-transparent to-background p-5 shadow-xl">
+            <motion.aside
+              {...fadeInOnMount}
+              className="order-1 space-y-6 lg:order-2"
+            >
+              <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-primary/30 bg-gradient-to-b from-primary/10 via-transparent to-background p-5 shadow-xl">
                 <div className="absolute left-2 top-4 h-20 w-20 rounded-full border border-primary/30 bg-primary/15 blur-3xl" />
                 <img
                   src={profileImage}
@@ -585,7 +588,7 @@ export default function App() {
                   loading="eager"
                 />
               </div>
-              <Card className="border border-primary/20 bg-background/70 backdrop-blur">
+              <Card className="w-full border border-primary/20 bg-background/70 backdrop-blur">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-lg">Perfil em resumo</CardTitle>
                   <CardDescription>
